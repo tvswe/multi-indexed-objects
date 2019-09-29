@@ -1,0 +1,27 @@
+{
+    "name": "tvswe/multi-indexed-objects",
+    "type": "library",
+    "description": "Library for multi indexed objects",
+    "keywords": [
+        "php"
+    ],
+    "homepage": "http://tvswe.eu/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tino Vogel",
+            "email": "tv.swe@gmx.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tvswe\\MultiIndexedObjects\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    }
+}
