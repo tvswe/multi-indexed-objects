@@ -5,16 +5,16 @@ namespace Tvswe\MultiIndexedObjects;
 /**
  * Class MultiIndexedObjectContainer
  */
-class MultiIndexedObjectContainer
+class MultiIndexedObjectContainer implements MultiIndexedObjectContainerInterface
 {
     /** @var MultiIndexedObjectInterface[] */
     private array $indexes;
 
     /**
      * MultiIndexedObjectContainer constructor.
-     * @param array $objects
+     * @param MultiIndexedObjectInterface[] $objects
      */
-    public function __construct(array $objects)
+    public function __construct(array $objects = [])
     {
         foreach($objects as $object) {
             $this->add($object);
@@ -22,7 +22,7 @@ class MultiIndexedObjectContainer
     }
 
     /**
-     * @param MultiIndexedObjectInterface $object
+     * @inheritDoc
      */
     public function add(MultiIndexedObjectInterface $object): void
     {
@@ -34,9 +34,7 @@ class MultiIndexedObjectContainer
     }
 
     /**
-     * @param string $indexName
-     * @param int|string $indexValue
-     * @return MultiIndexedObjectInterface
+     * @inheritDoc
      */
     public function getBy(string $indexName, $indexValue): MultiIndexedObjectInterface
     {
