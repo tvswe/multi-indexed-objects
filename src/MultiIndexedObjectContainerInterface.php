@@ -10,6 +10,17 @@ interface MultiIndexedObjectContainerInterface
     public function add(MultiIndexedObjectInterface $object): void;
 
     /**
+     * @return array
+     */
+    public function getAll(): array;
+
+    /**
+     * @param string $indexName
+     * @return array
+     */
+    public function getAllOf(string $indexName): array;
+
+    /**
      * @param string $indexName
      * @param int|string $indexValue
      * @return MultiIndexedObjectInterface

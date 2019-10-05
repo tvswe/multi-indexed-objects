@@ -8,6 +8,9 @@ namespace Tvswe\MultiIndexedObjects;
 class MultiIndexedObjectContainer implements MultiIndexedObjectContainerInterface
 {
     /** @var MultiIndexedObjectInterface[] */
+    private array $objects;
+
+    /** @var array */
     private array $indexes;
 
     /**
@@ -31,6 +34,25 @@ class MultiIndexedObjectContainer implements MultiIndexedObjectContainerInterfac
         foreach ($indexGenerator as $indexName => $indexValue) {
             $this->indexes[$indexName][$indexValue] = $object;
         }
+
+        $fqcn = get_class($object);
+        $this->objects[$fqcn] = $object;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getAll(): array
+    {
+        return $this->objects;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getAllOf(string $indexName): array
+    {
+        return $this->indexes[$indexName];
     }
 
     /**
